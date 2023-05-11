@@ -1,0 +1,21 @@
+/* Basket Stuff */
+.basket-info {
+  font-size: large;
+  vertical-align: auto;
+  text-align: left;
+  background-color: lightgray;
+  border: solid;
+  border-width: 5px;
+  border-left-width: 1px;
+  border-left-width: 1px;
+  border-color: rgb(255, 255, 255);
+}
+
+basket-container {
+  flex: auto;
+}
+
+.basket-container .item-showcase {
+  text-align: center;
+  flex: 20%;
+}

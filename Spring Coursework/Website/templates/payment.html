@@ -1,0 +1,53 @@
+<!--Uses the base template from base.html as a reference for this page as well-->
+{% extends "index.html" %} {% block title %}Payment{% endblock %} {% block
+content %}
+<!-- Reuses a lot of style components from carousel, with a few new ones in basket.css -->
+<div class="featurette-divider"></div>
+<div class="container">
+  <form method="POST">
+    <h3 align="center">Payment</h3>
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        name="email"
+        placeholder="Enter email"
+      />
+    </div>
+    <div class="form-group">
+      <label for="card-num">Card Number</label>
+      <input
+        type="number"
+        class="form-control"
+        id="card-number"
+        name="card-number"
+        placeholder="16-Digit Card Number"
+        oninput="limitInputLength(this, 16)"
+      />
+    </div>
+    <div class="form-group">
+      <label for="exp-date">Expiry Date</label>
+      <input
+        type="text"
+        class="form-control"
+        id="exp-date"
+        name="exp-date"
+        placeholder="Expiry Date"
+      />
+    </div>
+    <div class="form-group">
+      <label for="cvc-num">CVC</label>
+      <input
+        type="text"
+        class="form-control"
+        id="cvc-num"
+        name="cvc-num"
+        placeholder="CVC"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "product_page.html" %} {% block content %}
+<div class="container">
+  <div class="css"></div>
+  <hr class="featurette-divider" />
+  <div class="row featurette">
+    <div class="col-md-7">
+      <!-- PRODUCT NAME AND INFO -->
+      <h2 class="featurette-heading fw-normal lh-1">{{ item.name }}</h2>
+      <p class="lead" class="price">£{{ item.price}}</p>
+      <p class="lead">{{ item.description}}</p>
+      <p class="lead">{{ item.envImpact}}</p>
+      <!-- ADD TO CART BUTTON -->
+        <a class="btn btn-secondary" onclick="location.href='/add_to_basket/{{ item.id }}'"
+          >Add to Basket &raquo;</a
+        >
+      </form>
+    </div>
+    <div class="col-md-5">
+      <!-- PRODUCT IMAGE -->
+      <img
+        src="../../static/images/{{ item.image }}.png"
+        width="500"
+        height="500"
+        class="item-showcase-img"
+        role="img"
+        preserveAspectRatio="xMidYMid slice"
+      />
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "index.html" %} {% block content %}
+<main>
+  <link href="{{url_for('static', filename='basket.css')}}" rel="stylesheet" />
+  <div class="featurette-divider"></div>
+  <div class="container">
+    <h3>Your Basket</h3>
+    <div class="basket-container repos-wrapper">
+      <!-- Adds another row for information about basket -->
+      <div class="d-flex flex-row bd-highlight mb-3">
+        <div class="p-2 bd-highlight item-showcase basket-info">
+          <!-- Blank rectangle svg to preserve size of box -->
+          <svg
+            width="200"
+            height="10"
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+          >
+            <rect width="100%" height="100%" fill="lightgray" />
+          </svg>
+        </div>
+        <div class="p-2 bd-highlight item-showcase basket-info">Item</div>
+        <div class="p-2 bd-highlight item-showcase basket-info">Price</div>
+        <div class="p-2 bd-highlight item-showcase basket-info">Quantity</div>
+        <div class="p-2 bd-highlight">
+          <a
+            class="btn btn-secondary item-showcase basket-info"
+            onclick="location.href='empty_basket'"
+            >Remove All &raquo;</a
+          >
+        </div>
+      </div>
+      {% for products in basket %}
+      <div class="d-flex flex-row bd-highlight mb-3">
+        <div class="p-2 bd-highlight item-showcase basket-info">
+          <img
+            src="../static/images/{{ products.image }}.png"
+            width="200"
+            height="200"
+            class="item-showcase-img"
+            role="img"
+            preserveAspectRatio="xMidYMid slice"
+          />
+        </div>
+        <div class="p-2 bd-highlight item-showcase basket-info">
+          {{ products.name }}
+        </div>
+        <div class="p-2 bd-highlight item-showcase basket-info">
+          £{{ products.price }}
+        </div>
+        <div class="p-2 bd-highlight item-showcase basket-info">
+          {{ products.quantity }}
+        </div>
+        <p>
+          <a
+            class="btn btn-secondary item-showcase basket-info"
+            onclick="location.href='remove_from_basket/{{ products.id }}'"
+            >Remove Item&raquo;</a
+          >
+        </p>
+      </div>
+      {% endfor %}
+      <div class="d-flex flex-row bd-highlight mb-3">
+        <a class="btn btn-secondary" id="payment" href="/payment">Payment</a>
+        <div class="p-2 bd-highlight item-showcase basket-info">
+          Total:£{{ totalPrice }}
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock %}
